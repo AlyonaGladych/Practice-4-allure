@@ -5,7 +5,11 @@ describe('login suite', function() {
       let loginPage = new LoginPage();
 
       await loginPage.open();
-      //allure.createStep('login', function() {})();
+      /*allure.createStep('login', function() {})();
+      allure.createStep('login', function() {
+        await loginPage.open();
+        let productsPage = await loginPage.login("alyonagladych@gmail.com", "x&b*zmzA^oj");
+      });      */ 
 
       let productsPage = await loginPage.login("alyonagladych@gmail.com", "x&b*zmzA^oj");
 
@@ -13,6 +17,11 @@ describe('login suite', function() {
       await browser.sleep(3000);
 
       await productsPage.header.getAdministrationMenu().click();
+
+      /*allure.createStep('login', function() {})();
+      allure.createStep('login', function() {
+        await productsPage.header.getAdministrationMenu().click();
+      });*/
 
       await browser.sleep(3000);
 
@@ -23,6 +32,13 @@ describe('login suite', function() {
       await browser.sleep(3000);
 
       await newProductPage.createProduct('Alyona_Gladych Product 4');
+
+      /*allure.createStep('login', function() {})();
+      allure.createStep('login', function() {
+        let newProductPage = await productsPage.addProduct(); 
+        await newProductPage.createProduct('Alyona_Gladych Product 4');
+
+      });*/
 
       await browser.sleep(3000);
 
